@@ -27,11 +27,15 @@ A simple and fun Sudoku game made with Flutter, featuring a clean and minimal de
 
 2. **Install dependencies**
 
-`flutter pub get`
+```bash 
+flutter pub get
+```
 
 3. **Run the app**
 
-`flutter run`
+```bash
+flutter run
+```
 
 ## 🛠️ Dependencies
 
