@@ -37,17 +37,7 @@ A simple and fun Sudoku game made with Flutter, featuring a clean and minimal de
    flutter run
    ```
 
-## 🛠️ Dependencies
-
-- flutter – Framework SDK
-- cupertino_icons – iOS-style icons
-- google_fonts – Custom font support
-
-## 🧪 Dev Dependencies
-
-- flutter_test – Unit and widget testing
-- flutter_lints – Code linting rules
-
 ## 📸 Screenshots
 
-![](Screenshot_20250531-132558.jpg)! [](Screenshot_20250531-132631.jpg)
+[](Screenshot_20250531-132558.jpg)
+[](Screenshot_20250531-132631.jpg)
