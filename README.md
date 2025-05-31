@@ -39,5 +39,5 @@ A simple and fun Sudoku game made with Flutter, featuring a clean and minimal de
 
 ## 📸 Screenshots
 
-[](Screenshot_20250531-132558.jpg)
-[](Screenshot_20250531-132631.jpg)
+<img src="screenshots/splash_screen.jpg" width="250" />
+<img src="screenshots/main_screen.jpg" width="250" />
