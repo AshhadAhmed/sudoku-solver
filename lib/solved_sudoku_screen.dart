@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:sudoku_solver/main_screen.dart';
 
 class SolvedSudokuScreen extends StatelessWidget {
   final List board;
@@ -106,7 +107,7 @@ class SolvedSudokuScreen extends StatelessWidget {
                               fontSize: 20.0,
                               fontWeight: FontWeight.w600,
                               fontFamily: GoogleFonts.josefinSans().fontFamily,
-                              color: cluePositions.contains(row - col)
+                              color: !cluePositions.contains(row * 9 + col)
                                   ? const Color(0xFFE18464)
                                   : const Color(0xFF000000),
                             ),
@@ -120,7 +121,10 @@ class SolvedSudokuScreen extends StatelessWidget {
             ),
             const SizedBox(height: 63.0),
             TextButton(
-              onPressed: () {},
+              onPressed: () => Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (_) => const MainScreen()),
+              ),
               style: TextButton.styleFrom(
                 fixedSize: const Size(128.0, 38.0),
                 backgroundColor: const Color(0xFFFFB59C),

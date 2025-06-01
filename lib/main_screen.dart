@@ -145,34 +145,27 @@ class _MainScreenContentState extends State<_MainScreenContent> {
     });
   }
 
-  bool isBoardValid(List board) {
-    for (int i = 0; i < 9; i++) {
-      final row = <int>{}, col = <int>{};
+  bool isValidSudoku(List board) {
+    final rows = List.generate(9, (_) => <int>{});
+    final cols = List.generate(9, (_) => <int>{});
+    final boxes = List.generate(9, (_) => <int>{});
 
-      for (int j = 0; j < 9; j++) {
-        final rowVal = board[i][j];
-        final colVal = board[j][i];
+    for (int row = 0; row < 9; row++) {
+      for (int col = 0; col < 9; col++) {
+        final val = board[row][col];
+        if (val == 0) continue;
 
-        if (rowVal != 0)
-          if (!_isValidDigit(rowVal) || !row.add(rowVal)) return false;
+        final boxIndex = (row ~/ 3) * 3 + (col ~/ 3);
 
-        if (colVal != 0)
-          if (!_isValidDigit(colVal) || !col.add(colVal)) return false;
-      }
-    }
-
-    for (int boxRow = 0; boxRow < 9; boxRow += 3) {
-      for (int boxCol = 0; boxCol < 9; boxCol += 3) {
-        final box = <int>{};
-
-        for (int i = 0; i < 3; i++) {
-          for (int j = 0; j < 3; j++) {
-            final val = board[boxRow + i][boxCol + j];
-
-            if (val != 0)
-              if (!_isValidDigit(val) || !box.add(val)) return false;
-          }
+        if (rows[row].contains(val) ||
+            cols[col].contains(val) ||
+            boxes[boxIndex].contains(val)) {
+          return false;
         }
+
+        rows[row].add(val);
+        cols[col].add(val);
+        boxes[boxIndex].add(val);
       }
     }
     return true;
@@ -183,10 +176,6 @@ class _MainScreenContentState extends State<_MainScreenContent> {
       for (final cell in row) if (cell == 0) return false;
 
     return true;
-  }
-
-  bool _isValidDigit(int val) {
-    return val >= 1 && val <= 9;
   }
 
   @override
@@ -311,8 +300,8 @@ class _MainScreenContentState extends State<_MainScreenContent> {
           const SizedBox(height: 40.0),
           TextButton(
             onPressed: () {
-              if (isBoardValid(board) && isBoardComplete(board)) {
-                Navigator.pushReplacement(
+              if (isValidSudoku(board) && isBoardComplete(board)) {
+                Navigator.push(
                   context,
                   MaterialPageRoute(
                     builder: (_) => SolvedSudokuScreen(
@@ -322,7 +311,6 @@ class _MainScreenContentState extends State<_MainScreenContent> {
                   ),
                 );
               } else {
-                print(board);
                 HapticFeedback.mediumImpact();
                 showUnsolvableDialog(context);
               }

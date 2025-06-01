@@ -27,7 +27,7 @@ A simple and fun Sudoku game made with Flutter, featuring a clean and minimal de
 
 2. **Install dependencies**
 
-   ```bash 
+   ```bash
    flutter pub get
    ```
 
@@ -39,4 +39,4 @@ A simple and fun Sudoku game made with Flutter, featuring a clean and minimal de
 
 ## 📸 Screenshots
 
-   <img src="screenshots/splash_screen.jpg" width="250" /> <img src="screenshots/main_screen.jpg" width="250" />
+<img src="screenshots/splash_screen.jpg" width="250" /> <img src="screenshots/main_screen.jpg" width="250" /> <img src="screenshots/result_screen.jpg" width="250" />
