@@ -20,7 +20,7 @@ A simple and fun Sudoku game made with Flutter, featuring a clean and minimal de
 1. **Clone the repository**
 
    ```bash
-   git clone https://github.com/your-username/sudoku_solver.git
+   git clone https://github.com/AshhadAhmed/sudoku_solver.git
    cd sudoku_solver
 
    ```
